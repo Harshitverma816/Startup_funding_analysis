@@ -49,8 +49,6 @@ Startup_funding_analysis/
 └── README.md                                  # Project documentation
 ```
 
-The repository files listed above do **not** include separate Python `.py` scripts or the raw source CSV. The cleaning and EDA workflows are provided as Jupyter notebooks.
-
 ## 🧱 Data Model
 
 The project uses two linked datasets at different grains.
@@ -100,14 +98,11 @@ investors_long.csv
   deal_id + investor_name (one row per investor–deal association)
 ```
 
-The SQL file defines corresponding MySQL tables: `startup_funding` and `deal_investors`, with `deal_investors.deal_id` referencing `startup_funding.deal_id`.
-
 ## 🛠️ Tech Stack
 
 - **Python:** data cleaning, transformation, exploratory data analysis, and charting.
 - **pandas / NumPy:** tabular manipulation, aggregation, and numerical calculations.
 - **Matplotlib / Seaborn:** exploratory visualizations.
-- **Jupyter Notebook:** reproducible, step-by-step analysis.
 - **MySQL:** structured storage and analytical queries using aggregations, subqueries, CTEs, and window functions.
 - **Power BI:** interactive reporting, data modelling, DAX measures, slicers, and cross-filtering.
 - **PowerPoint:** presentation of the business problem, methodology, findings, limitations, and recommendations.
@@ -164,7 +159,6 @@ The query collection covers:
 5. Confirm the row counts and check that `deal_id` values in the investor table match the main table.
 6. Run the analytical queries in sections.
 
-The script contains `DROP TABLE IF EXISTS` statements. Review the script before rerunning it against any database containing data you need to keep.
 
 ## 📈 Power BI Dashboard
 
@@ -214,9 +208,9 @@ These are data-informed recommendations, not proof of causation.
 Recommended order:
 
 1. **Start with the presentation:** `Startup_Funding_Presentation.pptx` for the problem statement, methodology, findings, limitations, and recommendations.
-2. **Review data preparation:** `startup_funding_data_cleaning(2).ipynb` to understand the cleaning rules and output tables.
+2. **Review data preparation:** `startup_funding_data_cleaning.ipynb` to understand the cleaning rules and output tables.
 3. **Inspect the cleaned data:** `startup_funding_clean.csv` and `investors_long.csv`.
-4. **Reproduce the EDA:** run `startup_funding_EDA(3).ipynb` from top to bottom after updating file paths if needed.
+4. **Reproduce the EDA:** run `startup_funding_EDA.ipynb` from top to bottom after updating file paths if needed.
 5. **Run SQL analysis:** execute `Startup_funding_queries.sql` in MySQL Workbench after importing both CSVs.
 6. **Explore the dashboard:** open `Startup_Fund_Dashboard.pbix` in Power BI Desktop and refresh the data sources.
 
@@ -233,8 +227,6 @@ Install the common Python dependencies with:
 ```bash
 pip install pandas numpy matplotlib seaborn jupyter
 ```
-
-If a notebook imports other packages, install those as indicated by its import cells.
 
 ## Limitations
 
@@ -258,4 +250,3 @@ This project demonstrates an end-to-end workflow: preparing messy data, building
 
 ---
 
-*Built as a data analytics portfolio project. Please review the limitations and validate the figures against the current source files before using them for investment, policy, or other high-stakes decisions.*
